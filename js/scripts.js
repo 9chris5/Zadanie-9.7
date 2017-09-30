@@ -48,6 +48,8 @@ function newGame() {
     if (player.name) {
         player.score = computer.score = 0;
         gameState = 'started';
+        playerResultElem.innerHTML = "";
+        computerResultElem.innerHTML = "";
         setGameElements();
         
         playerNameElem.innerHTML = player.name;
@@ -62,7 +64,7 @@ function playerPick(playerPick) {
 
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
-    return possiblePicks[Math.floor(Math.random()*3)];
+    return possiblePicks[Math.floor(Math.random() * 3)];
 }
 
 function playerPick(playerPick) {
@@ -107,13 +109,13 @@ function finalResult() {
         console.log(player.score);
         alert('Player has won!');
         setGameElements();
-        }
-        else if (computer.score == 10) {
+    }
+    else if (computer.score == 10) {
         gameState = 'ended';
         console.log(computer.score);
         alert('Computer has won!');
         setGameElements();
-        }
+    }
 }
 
 newGameBtn.addEventListener('click', newGame);
